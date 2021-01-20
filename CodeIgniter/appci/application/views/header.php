@@ -22,6 +22,21 @@
                         Users
                     </a>
                 </li>
+                <li>
+                    <a href="<?php echo site_url('home/getUserInfo'); ?>">
+                        Get User Info
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('home/selectPhoto'); ?>">
+                        Upload image
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo site_url('home/addUser'); ?>">
+                        Register new user
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
