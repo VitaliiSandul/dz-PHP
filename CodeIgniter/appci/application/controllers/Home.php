@@ -66,9 +66,8 @@ class Home extends CI_Controller
             }
         }
     }
-
     
-    public function addUser()
+    public function registration()
     {
         if (!$this->input->post('send'))
         {            
@@ -77,9 +76,17 @@ class Home extends CI_Controller
         else 
         {
             $this->load->library('form_validation');
-            $this->form_validation->set_rules('name' , 'Name', 'required');
-            $this->form_validation->set_rules('lastname' , 'Lastname', 'required');
-            $this->form_validation->set_rules('login' , 'Login', 'required');
+            $this->form_validation->set_rules('name', 'Name', 'trim|required',
+                                             ['required'=>'You have not filled %s.']);
+            $this->form_validation->set_rules('lastname', 'Lastname', 'trim|required',
+                                             ['required'=>'You have not filled %s.']);
+            $this->form_validation->set_rules('login', 'Login', 'trim|required|min_length[5]|max_length[12]|is_unique[users.login]',
+                                             ['required'=>'You have not filled %s.',
+                                              'is_unique' => 'Value %s already exists.',
+                                              'min_length' => 'Login should have from 5 to 12 characters',
+                                              'max_length' => 'Login should have from 5 to 12 characters']);
+            $this->form_validation->set_rules('birthday', 'Birthday', 'required',
+                                             ['required'=>'You have not filled %s.']);
 
             $array = array(
                 'name' => $this->input->post('name'),

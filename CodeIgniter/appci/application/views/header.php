@@ -33,8 +33,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo site_url('home/addUser'); ?>">
-                        Register new user
+                    <a href="<?php echo site_url('home/registration'); ?>">
+                        Registration
                     </a>
                 </li>
             </ul>
